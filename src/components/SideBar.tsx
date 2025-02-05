@@ -1,5 +1,3 @@
-import React from 'react'
-
 const SideBar = () => {
     return (
         <div className='w-16 fixed h-screen border border-[#242424]

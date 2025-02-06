@@ -1,8 +1,8 @@
 import { useCallback, useState } from "react";
 import { TableProps } from "../types";
-
-export const useSort = (data: TableProps[]) => {
-  const [sortedData, setSortedData] = useState<TableProps[]>(data);
+import { data } from "../utils/data";
+export const useSort = () => {
+  const [projects, setProjects] = useState<TableProps[]>(data);
   const [sortConfig, setSortConfig] = useState<{
     key: keyof TableProps;
     direction: string;
@@ -10,10 +10,10 @@ export const useSort = (data: TableProps[]) => {
 
   const sortProjects = useCallback(
     (key: keyof TableProps) => {
-      setSortedData((prevProjects) => {
-        const sortedData = [...prevProjects].sort(
+      setProjects((prevProjects) => {
+        const sortedProjects = [...prevProjects].sort(
           (a, b) =>
-            a[key].toLocaleString().localeCompare(b[key].toLocaleString()) *
+            a[key].toString().localeCompare(b[key].toString()) *
             (sortConfig?.key === key && sortConfig.direction === "ascending"
               ? -1
               : 1)
@@ -23,11 +23,11 @@ export const useSort = (data: TableProps[]) => {
           direction:
             sortConfig?.direction === "ascending" ? "descending" : "ascending",
         });
-        return sortedData;
+        return sortedProjects;
       });
     },
     [sortConfig]
   );
 
-  return { sortedData, sortProjects };
+  return { projects, sortProjects };
 };

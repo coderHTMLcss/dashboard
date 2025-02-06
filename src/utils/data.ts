@@ -4,7 +4,7 @@ export const data: TableProps[] = [
   {
     id: 1,
     client: "Олександр Петренко",
-    country: "Україна",
+    city: "Київ",
     email: "oleksandr.petrenko@gmail.com",
     project: "Платформа для досліджень AI",
     progress: "10%",
@@ -15,7 +15,7 @@ export const data: TableProps[] = [
   {
     id: 2,
     client: "Марина Коваль",
-    country: "Україна",
+    city: "Львів",
     email: "marina.koval@gmail.com",
     project: "Розробка блокчейну",
     progress: "20%",
@@ -26,7 +26,7 @@ export const data: TableProps[] = [
   {
     id: 3,
     client: "Іван Мельник",
-    country: "Україна",
+    city: "Одеса",
     email: "ivan.melnyk@gmail.com",
     project: "Система електронного навчання",
     progress: "100%",
@@ -37,7 +37,7 @@ export const data: TableProps[] = [
   {
     id: 4,
     client: "Василь Шевченко",
-    country: "Україна",
+    city: "Київ",
     email: "vasyl.shevchenko@gmail.com",
     project: "Мобільний платіжний додаток",
     progress: "50%",
@@ -48,7 +48,7 @@ export const data: TableProps[] = [
   {
     id: 5,
     client: "Анастасія Романюк",
-    country: "Україна",
+    city: "Харків",
     email: "anastasiia.romaniuk@gmail.com",
     project: "Автоматизація розумного дому",
     progress: "30%",
@@ -59,7 +59,7 @@ export const data: TableProps[] = [
   {
     id: 6,
     client: "Дмитро Бондаренко",
-    country: "Україна",
+    city: "Одеса",
     email: "dmytro.bondarenko@gmail.com",
     project: "Гра у віртуальній реальності",
     progress: "8%",
@@ -70,7 +70,7 @@ export const data: TableProps[] = [
   {
     id: 7,
     client: "Ольга Лисенко",
-    country: "Україна",
+    city: "Кривий Ріг",
     email: "olga.lysenko@gmail.com",
     project: "Платформа електронної комерції",
     progress: "60%",
@@ -81,7 +81,7 @@ export const data: TableProps[] = [
   {
     id: 8,
     client: "Юрій Савченко",
-    country: "Україна",
+    city: "Миколаїв",
     email: "yurii.savchenko@gmail.com",
     project: "Туристичний вебсайт",
     progress: "80%",
@@ -92,7 +92,7 @@ export const data: TableProps[] = [
   {
     id: 9,
     client: "Наталія Мартинюк",
-    country: "Україна",
+    city: "Чернігів",
     email: "natalia.martyniuk@gmail.com",
     project: "Медичний додаток",
     progress: "90%",
@@ -103,7 +103,7 @@ export const data: TableProps[] = [
   {
     id: 10,
     client: "Максим Дубовик",
-    country: "Україна",
+    city: "Житомир",
     email: "maksym.dubovyk@gmail.com",
     project: "Агроплатформа",
     progress: "100%",
@@ -114,7 +114,7 @@ export const data: TableProps[] = [
   {
     id: 11,
     client: "Софія Кравченко",
-    country: "Україна",
+    city: "Харків",
     email: "sofia.kravchenko@gmail.com",
     project: "AI Асистент",
     progress: "20%",
@@ -125,7 +125,7 @@ export const data: TableProps[] = [
   {
     id: 12,
     client: "Владислав Гончар",
-    country: "Україна",
+    city: "Тернопіль",
     email: "vladyslav.gonchar@gmail.com",
     project: "Хмарне сховище",
     progress: "10%",
@@ -136,7 +136,7 @@ export const data: TableProps[] = [
   {
     id: 13,
     client: "Катерина Сидоренко",
-    country: "Україна",
+    city: "Дніпро",
     email: "kateryna.sydorenko@gmail.com",
     project: "Інтеграція IoT пристроїв",
     progress: "100%",
@@ -147,7 +147,7 @@ export const data: TableProps[] = [
   {
     id: 14,
     client: "Артем Василенко",
-    country: "Україна",
+    city: "Дніпро",
     email: "artem.vasylenko@gmail.com",
     project: "Фінансовий аналітичний інструмент",
     progress: "90%",

@@ -1,36 +1,26 @@
-import { useCallback, useState } from 'react';
 import SideBar from './SideBar';
 import Table from './Table';
 import Dropdown from './DropDown';
+import Pagination from './Pagination';
 import { TableProps } from '../types';
-import { data } from '../utils/data';
+import { INPUTS_FIELD } from '../variables';
 import { BiSort } from 'react-icons/bi';
 import { MdSort } from 'react-icons/md';
 import { useDropdown } from '../hooks/useDropdown';
+import { usePagination } from '../hooks/usePagination';
+import { useFilter } from '../hooks/useFilter';
+import { useSort } from '../hooks/useSort';
 
-
-const inputs = [
-    { label: "Filter by Name:", type: 'text', name: 'text' },
-    { label: "Filter by Country:", type: 'text', name: 'country' },
-    { label: "Filter by Email:", type: 'email', name: 'email' },
-    { label: "Filter by Project:", type: 'text', name: 'project' },
-    { label: "Filter by Status:", type: 'text', name: 'status' },
-];
 const Dashboard = () => {
-    const [projects, setProjects] = useState<TableProps[]>(data);
-    const [sortConfig, setSortConfig] = useState<{ key: keyof TableProps, direction: string } | null>(null);
+    const { projects, sortProjects } = useSort();
     const { activeDropdown, setActiveDropdown } = useDropdown();
+    const { filters, filteredProjects, handleInputChange } = useFilter(projects)
 
-    const sortProjects = useCallback((key: keyof TableProps) => {
-        setProjects(prevProjects => {
-            const sortedProjects = [...prevProjects].sort((a, b) =>
-                a[key].toString().localeCompare(b[key].toString())
-                * (sortConfig?.key === key && sortConfig.direction === 'ascending' ? -1 : 1)
-            );
-            setSortConfig({ key, direction: sortConfig?.direction === 'ascending' ? 'descending' : 'ascending' });
-            return sortedProjects;
-        });
-    }, [sortConfig]);
+    const { currentPage,
+        totalPages,
+        currentProject,
+        handlePageChange
+    } = usePagination(filteredProjects);
 
 
     return (
@@ -65,19 +55,28 @@ const Dashboard = () => {
                             isActive={activeDropdown === 'filters'}
                             toggle={() => setActiveDropdown(activeDropdown === 'filters' ? null : 'filters')}
                         >
-                            {inputs.map(({ label, type, name }) => (
+                            {INPUTS_FIELD.map(({ label, type, name }) => (
                                 <div key={name} className="mb-2">
                                     <label className="block text-white">{label}</label>
                                     <input
                                         type={type}
                                         name={name}
+                                        value={filters[name as keyof typeof filters]}
+                                        onChange={handleInputChange}
                                         className="bg-gray-900 text-white rounded p-2 w-full" />
                                 </div>
                             ))}
                         </Dropdown>
                     </div>
 
-                    <Table projects={projects} />
+                    <Table projects={currentProject} />
+
+                    <Pagination
+                        currentPage={currentPage}
+                        totalPages={totalPages}
+                        handlePageChange={handlePageChange}
+                    />
+
                 </div>
             </div>
         </div>
